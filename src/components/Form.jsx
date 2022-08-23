@@ -49,6 +49,8 @@ class Form extends React.Component {
             value={ cardAttr1 }
             onChange={ onInputChange }
             data-testid="attr1-input"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="attr2-input">
@@ -60,6 +62,8 @@ class Form extends React.Component {
             value={ cardAttr2 }
             onChange={ onInputChange }
             data-testid="attr2-input"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="attr3-input">
@@ -71,6 +75,8 @@ class Form extends React.Component {
             value={ cardAttr3 }
             onChange={ onInputChange }
             data-testid="attr3-input"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="image-input">
@@ -120,6 +126,8 @@ class Form extends React.Component {
     );
   }
 }
+// referência para usar o minimo e maximo no requisito 5
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 
 Form.propTypes = {
   cardName: PropTypes.string,
