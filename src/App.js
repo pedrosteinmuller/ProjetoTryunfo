@@ -15,6 +15,7 @@ class App extends React.Component {
     cards: [],
     hasTrunfo: false,
     isSaveButtonDisabled: true,
+    previewOn: false,
   };
 
   onInputChange = ({ target }) => {
@@ -56,6 +57,7 @@ class App extends React.Component {
   onSaveButtonClick = (parameter) => {
     this.setState((prevState) => ({
       cards: [...prevState.cards, parameter],
+      previewOn: true,
     }), () => {
       this.setState({
         cardName: '',
@@ -83,6 +85,8 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      previewOn,
+      cards,
     } = this.state;
     return (
       <div>
@@ -101,6 +105,19 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
+        {
+          previewOn === true && cards.map((e) => (<Card
+            key={ e.cardName }
+            cardName={ e.cardName }
+            cardDescription={ e.cardDescription }
+            cardImage={ e.cardImage }
+            cardAttr1={ e.cardAttr1 }
+            cardAttr2={ e.cardAttr2 }
+            cardAttr3={ e.cardAttr3 }
+            cardRare={ e.cardRare }
+            cardTrunfo={ e.cardTrunfo }
+          />))
+        }
         <Card
           onInputChange={ this.onInputChange }
           cardName={ cardName }
