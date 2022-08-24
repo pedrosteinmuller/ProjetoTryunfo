@@ -74,6 +74,14 @@ class App extends React.Component {
     });
   };
 
+  deleteButton = (parametro) => {
+    const { cards } = this.state;
+    this.setState({
+      cards: cards.filter((item) => item.cardName !== parametro.cardName),
+      hasTrunfo: false,
+    });
+  };
+
   render() {
     const {
       cardName,
@@ -119,21 +127,29 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </div>
-        {
-          previewOn === true && cards.map((e) => (<Card
-            key={ e.cardName }
-            cardName={ e.cardName }
-            cardDescription={ e.cardDescription }
-            cardImage={ e.cardImage }
-            cardAttr1={ e.cardAttr1 }
-            cardAttr2={ e.cardAttr2 }
-            cardAttr3={ e.cardAttr3 }
-            cardRare={ e.cardRare }
-            cardTrunfo={ e.cardTrunfo }
-          />))
-        }
+        {previewOn === true
+          && cards.map((e) => (
+            <div key={ e.cardName }>
+              <Card
+                cardName={ e.cardName }
+                cardDescription={ e.cardDescription }
+                cardImage={ e.cardImage }
+                cardAttr1={ e.cardAttr1 }
+                cardAttr2={ e.cardAttr2 }
+                cardAttr3={ e.cardAttr3 }
+                cardRare={ e.cardRare }
+                cardTrunfo={ e.cardTrunfo }
+              />
+              <button
+                type="button"
+                data-testid="delete-button"
+                onClick={ () => this.deleteButton(e) }
+              >
+                Excluir
+              </button>
+            </div>
+          ))}
       </main>
-
     );
   }
 }

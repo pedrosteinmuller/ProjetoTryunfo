@@ -12,6 +12,7 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      // deleteButton,
     } = this.props;
     return (
       <div className="cards">
@@ -36,6 +37,7 @@ Card.propTypes = {
   cardAttr3: PropTypes.string,
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
+  deleteButton: PropTypes.element,
   cardTrunfo: PropTypes.bool,
   hasTrunfo: PropTypes.bool,
 }.isRequired;
