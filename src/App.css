@@ -10,6 +10,19 @@ body {
   font-family: monospace;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+
+}
+
 .title {
   align-items: center;
   background-color: rgb(37, 37, 64);
@@ -20,30 +33,16 @@ body {
   width: 100%;
 }
 
-.forms {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .container {
   background-color: rgb(78, 111, 84);
   display: flex;
   justify-content: center;
-  width: 50%;
 }
 
 .cards {
+  background-color: aqua;
   display: flex;
-  height: 550px;
-  justify-content: center;
-  margin: auto;
-  width: 70%;
-}
-
-img {
-  border-radius: 100%;
-  width: 50%;
+  flex-direction: row;
 }
 
 p {
@@ -58,4 +57,15 @@ input {
   height: 20px;
   padding: 7px;
   width: 50px;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  height: 40px;
+  padding: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+  width: 150px;
 }
