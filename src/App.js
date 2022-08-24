@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -90,7 +91,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <h1>Tryunfo</h1>
+        <h1 className="title">Tryunfo</h1>
         <Form
           onInputChange={ this.onInputChange }
           cardName={ cardName }
