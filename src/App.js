@@ -11,6 +11,7 @@ class App extends React.Component {
     cardAttr1: 0,
     cardAttr2: 0,
     cardAttr3: 0,
+    rareFilter: 'todas',
     cardRare: 'normal',
     cardTrunfo: false,
     cards: [],
@@ -98,6 +99,7 @@ class App extends React.Component {
       isSaveButtonDisabled,
       previewOn,
       cards,
+      rareFilter,
     } = this.state;
     return (
       <main>
@@ -136,10 +138,22 @@ class App extends React.Component {
             value={ filterName }
             onChange={ this.onInputChange }
           />
+          <select
+            name="rareFilter"
+            value={ rareFilter }
+            data-testid="rare-filter"
+            onChange={ this.onInputChange }
+          >
+            <option value="todas">todas</option>
+            <option value="normal">normal</option>
+            <option value="raro">raro</option>
+            <option value="muito raro">muito raro</option>
+          </select>
         </div>
         {previewOn === true
           && cards
             .filter((item) => item.cardName.includes(filterName))
+            .filter((element) => element.cardRare.includes(rareFilter))
             .map((e) => (
               <div key={ e.cardName }>
                 <Card
