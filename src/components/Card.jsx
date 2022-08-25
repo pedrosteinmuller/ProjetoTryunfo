@@ -12,7 +12,6 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // deleteButton,
     } = this.props;
     return (
       <div className="cards">

@@ -55,6 +55,7 @@ class App extends React.Component {
         });
       }
     });
+    if (type === 'checkbox') return true;
   };
 
   onSaveButtonClick = (parameter) => {
@@ -69,7 +70,7 @@ class App extends React.Component {
         cardAttr2: 0,
         cardAttr3: 0,
         cardImage: '',
-        cardRare: '',
+        cardRare: 'normal',
         hasTrunfo: true,
         cardTrunfo: false,
       });
@@ -78,6 +79,7 @@ class App extends React.Component {
 
   deleteButton = (parametro) => {
     const { cards } = this.state;
+    console.log(cards, parametro);
     this.setState({
       cards: cards.filter((item) => item.cardName !== parametro.cardName),
       hasTrunfo: false,
@@ -152,10 +154,11 @@ class App extends React.Component {
         </div>
         {previewOn === true
           && cards
+            .filter(({ cardRare: element }) => (
+              (rareFilter === 'todas') ? true : element === rareFilter))
             .filter((item) => item.cardName.includes(filterName))
-            .filter((element) => element.cardRare.includes(rareFilter))
-            .map((e) => (
-              <div key={ e.cardName }>
+            .map((e, index) => (
+              <div key={ `${e.cardName}${index}` }>
                 <Card
                   cardName={ e.cardName }
                   cardDescription={ e.cardDescription }

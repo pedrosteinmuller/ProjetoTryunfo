@@ -106,7 +106,7 @@ class Form extends React.Component {
               <option>muito raro</option>
             </select>
           </label>
-          <label htmlFor="trunfo-input">
+          <label htmlFor="trunfo">
             {hasTrunfo === false && (
               <input
                 type="checkbox"
