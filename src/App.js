@@ -14,6 +14,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     cards: [],
+    filterName: '',
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     previewOn: false,
@@ -93,6 +94,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      filterName,
       isSaveButtonDisabled,
       previewOn,
       cards,
@@ -126,29 +128,39 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
           />
+          <input
+            type="text"
+            name="filterName"
+            data-testid="name-filter"
+            placeholder="Filtragem pelo nome"
+            value={ filterName }
+            onChange={ this.onInputChange }
+          />
         </div>
         {previewOn === true
-          && cards.map((e) => (
-            <div key={ e.cardName }>
-              <Card
-                cardName={ e.cardName }
-                cardDescription={ e.cardDescription }
-                cardImage={ e.cardImage }
-                cardAttr1={ e.cardAttr1 }
-                cardAttr2={ e.cardAttr2 }
-                cardAttr3={ e.cardAttr3 }
-                cardRare={ e.cardRare }
-                cardTrunfo={ e.cardTrunfo }
-              />
-              <button
-                type="button"
-                data-testid="delete-button"
-                onClick={ () => this.deleteButton(e) }
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
+          && cards
+            .filter((item) => item.cardName.includes(filterName))
+            .map((e) => (
+              <div key={ e.cardName }>
+                <Card
+                  cardName={ e.cardName }
+                  cardDescription={ e.cardDescription }
+                  cardImage={ e.cardImage }
+                  cardAttr1={ e.cardAttr1 }
+                  cardAttr2={ e.cardAttr2 }
+                  cardAttr3={ e.cardAttr3 }
+                  cardRare={ e.cardRare }
+                  cardTrunfo={ e.cardTrunfo }
+                />
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ () => this.deleteButton(e) }
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
       </main>
     );
   }
