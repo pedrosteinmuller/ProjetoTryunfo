@@ -1,13 +1,17 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Projeto Tryunfo 🃏
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Aplicação web construída para criação de cartas estilo o jogo Super Trunfo. Ao utilizar essa aplicação uma pessoa usuária será capaz de criar um baralho com tema livre, podendo: adicionar, visualizar e remover as cartas.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+* Construída utilizado React e CSS3.
+
+### Instruções
+
+- Para rodar a aplicação localmente, realize o clone do projeto e utilize os comandos a seguir para inicializar:
+
+```
+npm install // para instalar as dependências
+npm start // para iniciar a aplicação
+```
+
+👨🏻‍💻 **Acessar:** _[Clique Aqui](https://projeto-tryunfo-nine.vercel.app/)_
+
